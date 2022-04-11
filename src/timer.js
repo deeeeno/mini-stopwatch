@@ -40,6 +40,14 @@ export default class Timer{
   setEventHandler(){
     this.startStopBtnEl.addEventListener('click',this.onClickStartStopBtn.bind(this));
     this.lapResetBtnEl.addEventListener('click',this.onClickLapResetBtn.bind(this));
+    document.addEventListener('keydown',this.onKeyDown.bind(this));
+  }
+  onKeyDown(e){
+    if(/s|S|ㄴ/.test(e.key)){
+      this.startStopBtnEl.click();
+    }else if(/l|L|ㅣ/.test(e.key)){
+      this.lapResetBtnEl.click();
+    }
   }
   onClickLapResetBtn(){
     if(this.isPlay){
